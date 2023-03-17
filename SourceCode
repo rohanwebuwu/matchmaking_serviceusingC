@@ -1,0 +1,191 @@
+
+#include <conio.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct client
+{
+  int age, sex, status, branch, br_pref;
+  char name[50], pass[8];
+};
+
+int passcheck ()
+{
+  int i, L1, L2;
+  char p[10];
+  char v[10];
+  struct client c[30];
+  printf ("\nCreate an 8 character password: \n");
+  scanf ("%s", &p);
+  printf ("\nEnter password again for verification:\n");
+  scanf ("%s", &v);
+  L1=strlen(p);
+  L2=strlen(v);
+  if (L1=L2 && L1==8)
+  {
+        i = strcmp (p, v);
+        if (i == 0)
+         {
+             printf("****************************************************\n");
+             printf("*                     WELCOME                      *\n");
+             printf("*    YOUR ACCOUNT HAS BEEN SUCCESSFULLY CREATED    *\n");
+             printf("****************************************************\n");
+          }
+
+        else
+        {
+        printf ("\npasswords do not match:(\n");
+        passcheck ();
+        }
+    }
+    else
+    {
+        printf("\nYour password is NOT 8 characters please try again^_^\n");
+        passcheck();
+    }
+}
+
+int agecheck()
+{
+    struct client c[30];
+    printf ("\nEnter your age:\n");
+    scanf ("%d", &c[0].age);
+    if (c[0].age<18)
+     {
+        printf("\nyou are not old enough to use this service we're sorry:(\n");
+        agecheck();
+     }
+}
+
+void main ()
+{
+  struct client c[30];
+  printf("**************************************************************\n");
+  printf("*            WELCOME TO OUR MATCHMAKING SERVICE              *\n");
+  printf("*                ~MaTcHiNg SoUls NoT bOdIes~                 *\n");
+  printf("**************************************************************\n");
+  
+
+  printf ("Enter your name:\n");
+  scanf ("%s", &c[0].name[25]);
+  passcheck ();
+  agecheck ();
+  printf ("\nEnter your gender:\n ~1 for male and 2 for female~\n");
+  scanf ("%d", &c[0].sex);
+  printf("\n~Select your branch~\nEnter 1 for EXTC, 2 for IT, 3 for Comps, 4 for Mech, 5 for AIDS, 6 for AIML, 7 for IoT, 8 DS\n");
+  scanf ("%d", &c[0].branch);
+  
+
+printf("\nOUR EXISTING CLIENTS ARE AS FOLLOWS \n");
+  c[1].name[50] = "Bunan Boshi";c[1].age = 18;c[1].sex = 1;c[1].branch = 1;                                  
+  c[2].name[50] = "rohan shah";c[2].age = 18;c[2].sex = 1;c[2].branch = 1;                                   
+  c[3].name[50] = "ayushi kansara";c[3].age = 18;c[3].sex = 2;c[3].branch = 1;                               
+  c[4].name[50] = "ishika pain";c[4].age = 18;c[4].sex = 2;c[4].branch = 1;                                  
+  c[5].name[50] = "prisha dhoke";c[5].age = 18;c[5].sex = 2;c[5].branch = 1;                                
+  c[6].name[50] = "dharmil singh";c[6].age = 18;c[6].sex = 1;c[6].branch = 8;                                
+  c[7].name[50] = "yash chopra";c[7].age = 18;c[7].sex = 1;c[7].branch = 5;                                  
+  c[8].name[50] = "karan bhanushali";c[8].age = 18;c[8].sex = 1;c[8].branch = 1;                             
+  c[9].name[50] = "milan sharma";c[9].age = 19;c[8].sex = 1; c[9].branch = 2;                                 
+  c[10].name[50] = "lakshata thakur";c[10].age = 18;c[10].sex = 2;c[10].branch = 2;                          
+  c[11].name[50] = "jagtaap jain";c[11].age = 18;c[11].sex = 1;c[11].branch = 4;                             
+  c[12].name[50] = "shalaka bonerjee";c[12].age = 19;c[13].sex = 2;c[3].branch = 3;                          
+  c[13].name[50] = "shreya patak";c[13].age = 19;c[13].sex = 2;c[13].branch = 6;                             
+  c[14].name[50] = "gaurav bhatt";c[14].age = 19;c[14].sex = 1;c[14].branch = 4;                             
+  c[15].name[50] = "manthan patel";c[15].age = 18;c[15].sex = 1;c[15].branch = 4;                            
+  c[16].name[50] = "yash gulati";c[16].age = 18;c[16].sex = 1;c[16].branch = 3;                              
+  c[17].name[50] = "ankita sodawala";c[17].age = 19;c[17].sex = 2;c[17].branch = 4;                          
+  c[18].name[50] = "siddhi shah";c[18].age = 19;c[18].sex = 2;c[18].branch = 8;                              
+  c[19].name[50] = "aryan thakur";c[19].age = 18;c[19].sex = 1;c[19].branch = 6;                             
+  c[20].name[50] = "shyamala krishnamurthy";c[20].age = 19;c[20].sex = 2;c[20].branch = 7;                   
+  c[21].name[50] = "yash pandya";c[21].age = 18;c[21].sex = 1;c[21].branch = 7;
+  c[22].name[50] = "sparshil veda";c[22].age = 18;c[22].sex = 1;c[22].branch = 3;
+  
+  
+    for(int i=1; i<=22; i++)
+    {
+      printf("\n%d|", i);
+      printf("\t|%s|", c[i].name);
+      printf("\t|age: %d|", c[i].age);
+      if (c[i].sex == 1)
+	{
+	  printf ("\t|sex: male  |");
+	}
+      else
+	{
+	  printf ("\t|sex: female|");
+	}
+
+      //for displaying branch
+      if (c[i].branch == 1)
+	{
+	  printf ("\t|branch: EXTC |");
+	}
+      else
+	{
+	  if (c[i].branch == 2)
+	    {
+	      printf ("\t|branch: IT   |");
+	    }
+	  else
+	    {
+	      if (c[i].branch == 3)
+		{
+		  printf ("\t|branch: Comps|");
+		}
+	      else
+		{
+		  if (c[i].branch == 4)
+		    {
+		      printf ("\t|branch: Mech |");
+		    }
+		  else
+		    {
+		      if (c[i].branch == 5)
+			{
+			  printf ("\t|branch: AI DS|");
+			}
+		      else
+		      {
+			if (c[i].branch == 6)
+			{
+			  printf ("\t|branch: AI ML|");
+			}
+		      else
+		      {
+			if (c[i].branch == 7)
+			  {
+			    printf ("\t|branch: IoT  |");
+			  }
+			else
+			  {
+			    printf ("\t|branch: DS   |");
+}
+}
+}
+}
+}
+}
+}//end of first else and everything nested in it
+}//for loop ends
+printf("\n~Enter your branch preference~\nEnter 1 for EXTC, 2 for IT, 3 for Comps, 4 for Mech, 5 for AIDS, 6 for AIML, 7 for IoT, 8 DS\n");
+  scanf("%d", &c[0].br_pref);
+  
+for (int i=1; i<22; i++)
+{
+    if(c[i].sex!=c[0].sex)
+    {
+        //matches opposite genders ew heteronormativity
+        if(c[0].br_pref==c[i].branch)
+        {
+            printf("\n~YOU HAVE BEEN MATCHED WITH:\n \t%s \t%d", c[i].name, c[i].age);//that was the same code that i wrote someone deleted it :(
+        }
+    }
+}
+}//main function ka closing parenthesis I'VE LOST THIS STUPID THING SO MANY TIMES WTFFFF efforts acknowledges 
+
+
+
+
+
+
